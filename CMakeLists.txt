@@ -11,17 +11,17 @@ add_library(remote_fmt INTERFACE)
 if(NOT CMAKE_CROSSCOMPILING)
   include(cmake_helpers/FindOrFetch.cmake)
   find_or_fetch_package(fmt 9 GIT_REPOSITORY https://github.com/fmtlib/fmt.git
-                        GIT_TAG master)
+                        GIT_TAG main)
   find_or_fetch_package(nlohmann_json 3.9 GIT_REPOSITORY
-                        https://github.com/nlohmann/json GIT_TAG master)
+                        https://github.com/nlohmann/json GIT_TAG main)
   find_or_fetch_package(magic_enum 0.8 GIT_REPOSITORY
-                        https://github.com/Neargye/magic_enum GIT_TAG master)
+                        https://github.com/Neargye/magic_enum GIT_TAG v0.8.2)
 else()
   include(FetchContent)
   FetchContent_Declare(
     fmt
     GIT_REPOSITORY https://github.com/fmtlib/fmt.git
-    GIT_TAG master
+    GIT_TAG main
     GIT_SHALLOW TRUE)
   FetchContent_GetProperties(fmt)
   FetchContent_Populate(fmt)
@@ -36,7 +36,7 @@ else()
   FetchContent_Declare(
     magic_enum
     GIT_REPOSITORY https://github.com/Neargye/magic_enum
-    GIT_TAG master
+    GIT_TAG v0.8.2
     GIT_SHALLOW TRUE)
 
   FetchContent_MakeAvailable(magic_enum)
