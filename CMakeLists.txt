@@ -11,7 +11,7 @@ add_library(remote_fmt INTERFACE)
 if(NOT CMAKE_CROSSCOMPILING)
   include(cmake_helpers/FindOrFetch.cmake)
   find_or_fetch_package(fmt 9 GIT_REPOSITORY https://github.com/fmtlib/fmt.git
-                        GIT_TAG master)
+                        GIT_TAG main)
   find_or_fetch_package(nlohmann_json 3.9 GIT_REPOSITORY
                         https://github.com/nlohmann/json GIT_TAG master)
   find_or_fetch_package(magic_enum 0.8 GIT_REPOSITORY
@@ -21,7 +21,7 @@ else()
   FetchContent_Populate(
     fmt
     GIT_REPOSITORY https://github.com/fmtlib/fmt.git
-    GIT_TAG master
+    GIT_TAG main
     )
   add_subdirectory(${fmt_SOURCE_DIR} ${fmt_BINARY_DIR} EXCLUDE_FROM_ALL)
 
